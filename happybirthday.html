@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <h1>欢迎来到生日网站</h1>
+        <p>点击下面的按钮查看消息</p>
+        <button id="myButton">点击我</button>
+        <p id="message" style="display:none;">你好，这是一条消息！</p>
+    </div>
+    <script>
+        document.getElementById("myButton").addEventListener("click", function() {
+            var messageElement = document.getElementById("message");
+            if (messageElement.style.display === "none") {
+                messageElement.style.display = "block";
+            } else {
+                messageElement.style.display = "none";
+            }
+        });
+    </script>
+</body>
+</html>
