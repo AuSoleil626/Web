@@ -3,24 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>生日祝福</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+        }
+        .container {
+            width: 300px;
+            padding: 16px;
+            background-color: white;
+            margin: 0 auto;
+            margin-top: 100px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        input[type=text], input[type=date] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+        button:hover {
+            opacity: 0.8;
+        }
+    </style>
 </head>
 <body>
-    <div>
-        <h1>欢迎来到生日网站</h1>
-        <p>点击下面的按钮查看消息</p>
-        <button id="myButton">点击我</button>
-        <p id="message" style="display:none;">你好，这是一条消息！</p>
+    <div class="container">
+        <label for="name"><b>姓名</b></label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="birthday"><b>生日</b></label>
+        <input type="date" id="birthday" name="birthday" required>
+
+        <button type="button" onclick="validateForm()">进入生日祝福主界面</button>
     </div>
+
     <script>
-        document.getElementById("myButton").addEventListener("click", function() {
-            var messageElement = document.getElementById("message");
-            if (messageElement.style.display === "none") {
-                messageElement.style.display = "block";
-            } else {
-                messageElement.style.display = "none";
+        document.getElementById("name").value = "";
+        document.getElementById("birthday").value = "";
+
+        function validateForm() {
+            const name = document.getElementById("name").value;
+            const birthday = document.getElementById("birthday").value;
+
+            if (name === "" || birthday === "") {
+                alert("请填写所有字段");
+                return false;
             }
-        });
+
+            const birthDate = new Date(birthday);
+            const today = new Date();
+
+            if (birthDate > today) {
+                alert("生日不能在当前日期之后");
+                return false;
+            }
+
+            const age = today.getFullYear() - birthDate.getFullYear();
+            const month = today.getMonth() - birthDate.getMonth();
+            const day = today.getDate() - birthDate.getDate();
+
+            if (month < 0 || (month === 0 && day < 0)) {
+                age--;
+            }
+
+            if (age < 18) {
+                alert("您还未满18岁，不能访问此网站");
+                return false;
+            }
+
+            // 重定向到新的页面
+            window.location.href = "birthday_wishes.html?name=" + encodeURIComponent(name) + "&birthday=" + encodeURIComponent(birthday);
+        }
     </script>
 </body>
 </html>
