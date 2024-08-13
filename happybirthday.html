@@ -5,9 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>生日祝福</title>
     <style>
+        .form-group {
+            display:flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        label {
+            width: 60px;
+            text-align: left;
+            
+            
+        }
         body {
             font-family: Arial, sans-serif;
             background-color: #f5f5f5;
+            background-image: linear-gradient(to right,red,green);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
         }
         .container {
             width: 300px;
@@ -42,11 +60,16 @@
 </head>
 <body>
     <div class="container">
-        <label for="name"><b>姓名</b></label>
-        <input type="text" id="name" name="name" required>
+            <div class="form-group">
+                <label for="name"><b>姓名</b></label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="birthday"><b>生日</b></label>
+                <input type="date" id="birthday" name="birthday" required>
+            </div>            
 
-        <label for="birthday"><b>生日</b></label>
-        <input type="date" id="birthday" name="birthday" required>
+
 
         <button type="button" onclick="validateForm()">进入生日祝福主界面</button>
     </div>
@@ -80,10 +103,7 @@
                 age--;
             }
 
-            if (age < 18) {
-                alert("您还未满18岁，不能访问此网站");
-                return false;
-            }
+            
 
             // 重定向到新的页面
             window.location.href = "birthday_wishes.html?name=" + encodeURIComponent(name) + "&birthday=" + encodeURIComponent(birthday);
