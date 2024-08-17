@@ -1,0 +1,40 @@
+@font-face {
+    font-family: "Myfont";
+    src: url('./Myfont.ttf') format('truetype');
+    font-weight: normal ;
+    font-style:normal;
+    }
+.form-group {
+    display:flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    }
+.head-congratulation{
+    /* margin-top: 100px; */
+    font-family: "Myfont",sans-serif;
+    font-size: 4rem;
+    color: #72018f9d;
+    text-align: center;
+    /* margin-bottom: 2rem; */
+    background: linear-gradient(to right, #f82d4c, #cfec9a,#2987f19d, #f73d59);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    }
+img{
+    /* position: absolute;
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%, -65%); */
+    margin-right: 20px;
+}
+.container {
+    margin-top: 20px;
+    position: absolute;
+    top: 65%;
+    left: 70%;
+    transform: translate(-70%, -65%);
+    width: 800px;
+    height: 300px;      
+    display: flex;
+    align-items: center;
+  }
