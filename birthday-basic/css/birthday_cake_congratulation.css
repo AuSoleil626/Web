@@ -22,6 +22,8 @@
     }
 #targetImage
 {
+    width: 100px;
+    height: 100px;
     margin-right: 20px;
     z-index:2;
 }
@@ -30,8 +32,8 @@
     margin-top: 20px;
     position: absolute;
     top: 65%;
-    left: 70%;
-    transform: translate(-70%, -65%);
+    left: 50%;
+    transform: translate(-50%, -65%);
     width: 800px;
     height: 300px;      
     display: flex;
@@ -51,10 +53,18 @@
 } */
 #sourceImage {
     position: absolute;
-    width: 130px;
-    height: 100px;
-    top: 5%;
-    right: 5%;
+    width: 100px;
+    height: 80px;
+    top: 10%;
+    right: 10%;
     transform: translate(-10%, -10%);
     z-index:2;
   }
+#talkImage{
+    
+    width:130px;
+    height:130px;
+    margin-bottom: 70px;
+    /* transform: translate(-70%, -65%); */
+    z-index:2;    
+}
