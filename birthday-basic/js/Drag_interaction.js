@@ -57,6 +57,7 @@ function startAnimation(source, target) {
       let finalY = (targetPercentY * windowHeight / 100) + 20;
       source.style.left = finalX + 'px';
       source.style.top = finalY + 'px';
+      window.location.href = 'MainWeb.html';
     }
   }
 
