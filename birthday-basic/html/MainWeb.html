@@ -21,6 +21,58 @@
   </div>
 </div>
 </body>
+<img id="soundImage1" src="../img/NoSound.png">
+  <audio id="birthday" src="../music/mysong.mp3"  loop="loop"></audio>
+  
+  <script>
+    const image = document.getElementById('soundImage1');
+    const audio = document.getElementById('birthday');
+
+    image.addEventListener('click', function () {
+      if (audio.paused) {
+        audio.play();
+        this.src = '../img/Sound.png'; // 更换后的图片路径
+      } else {
+        audio.pause();
+        this.src = '../img/NoSound.png'; // 更换后的图片路径
+      }
+    });
+  </script>
+  <img id="textimage" src="../img/text.png" draggable="false">
+  <class id="container_link">
+      <img id="linkimage" src="../img/link.png" draggable="false">
+      <img id="fish" src="../img/fish.png" draggable="false">
+  </class>
+
+  <script>
+    const container = document.getElementById('container_link');
+    const fishImage = document.getElementById('fish');
+    const linkImage=document.getElementById('linkimage');
+    let initialScale = 0.2;
+    let initialRotation = 20;
+    let translationX = 0;
+    let translationY = 0;
+
+    container.addEventListener('mouseover', (e) => {
+      if (e.target === linkImage) {
+        const rect = fishImage.getBoundingClientRect();
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+        const radians = initialRotation * (Math.PI / 180);
+        translationX = Math.sin(radians) * -300 + Math.cos(radians) * 300;
+        translationY = Math.cos(radians) * -300;
+        fishImage.style.transform = `scale(0.25) rotate(22deg) translate(${translationX}px, ${translationY}px)`;
+      }
+    });
+
+    container.addEventListener('mouseout', (e) => {
+      if (e.target === linkImage) {
+        fishImage.style.transform = `scale(${initialScale}) rotate(${initialRotation}deg) translate(0px, 0px)`;
+        translationX = 0;
+        translationY = 0;
+      }
+    });
+  </script>
 </html>
 <audio src="music/2.mp3"  autoplay="autoplay" loop="loop"></audio>
 <ul class="bg-bubbles">

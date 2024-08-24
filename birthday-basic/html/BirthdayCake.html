@@ -186,7 +186,23 @@
 
 </html>
   <img id="sourceImage"  src="../img/bohe.png"  draggable="true" >
-<audio src="music/2.mp3"  autoplay="autoplay" loop="loop"></audio>
+  <img id="soundImage" src="../img/NoSound.png">
+  <audio id="birthday" src="../music/2.mp3"  loop="loop"></audio>
+  
+  <script>
+    const image = document.getElementById('soundImage');
+    const audio = document.getElementById('birthday');
+
+    image.addEventListener('click', function () {
+      if (audio.paused) {
+        audio.play();
+        this.src = '../img/Sound.png'; // 更换后的图片路径
+      } else {
+        audio.pause();
+        this.src = '../img/NoSound.png'; // 更换后的图片路径
+      }
+    });
+  </script>
 
   <script src="../js/Drag_interaction.js"></script>
   <script>
@@ -211,8 +227,6 @@
   <!-- <script src="js/auto-play.js"></script> -->
   <!-- <script src="js/birthday-cake.js"></script> -->
 
-  <audio src="../music/2.mp3" autoplay="autoplay" loop="loop">
-  </audio>
 </body>
 
 </html>
